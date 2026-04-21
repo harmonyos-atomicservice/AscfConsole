@@ -1,0 +1,45 @@
+diff --git a/esm/index.js b/esm/index.js
+index e643da21f8fa93df62c743758e42af28d231f323..e2d0276718d4d0e2e3e022bb7651fca22441311a 100644
+--- a/esm/index.js
++++ b/esm/index.js
+@@ -38,8 +38,8 @@ const getApiVar = memoize(()=>{
+         if (typeof qq === 'object' && qq && typeof qq.request === 'function') {
+             return qq;
+         }
+-        if (typeof ks === 'object' && ks && typeof ks.request === 'function') {
+-            return ks;
++        if (typeof has === 'object' && has && typeof has.request === 'function') {
++            return has;
+         }
+         return;
+     }
+@@ -64,6 +64,9 @@ const getApiVar = memoize(()=>{
+     if (BUILD_TARGET === 'ks') {
+         return ks;
+     }
++    if (BUILD_TARGET === 'ascf') {
++        return has;
++    }
+ });
+ // eslint-disable-next-line complexity
+ const getApiVarName = memoize(()=>{
+@@ -89,6 +92,9 @@ const getApiVarName = memoize(()=>{
+         if (typeof ks === 'object' && ks && typeof ks.request === 'function') {
+             return 'ks';
+         }
++        if (typeof has === 'object' && has && typeof has.request === 'function') {
++            return 'has';
++        }
+         return '?';
+     }
+     if (BUILD_TARGET === 'wx') {
+@@ -112,6 +118,9 @@ const getApiVarName = memoize(()=>{
+     if (BUILD_TARGET === 'ks') {
+         return 'ks';
+     }
++    if (BUILD_TARGET === 'has') {
++        return 'ascf';
++    }
+     return '?';
+ });
+ 

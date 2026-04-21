@@ -10,9 +10,7 @@ import {
     getCurrentEnvVersion,
     getStorage,
     getSystemInfo,
-    setClipboardData,
-    setStorage,
-    showToast
+    setStorage
 } from 'cross-mp-power';
 import { getElementId } from '@/sub/modules/element';
 import type { MpEvent } from '@/types/view';
@@ -85,16 +83,8 @@ class MainComponent extends MpComponent {
                 value: 'api'
             },
             {
-                name: 'Component',
-                value: 'component'
-            },
-            {
                 name: 'Storage',
                 value: 'storage'
-            },
-            {
-                name: 'Other',
-                value: 'other'
             }
         ],
         sysTabs: getSysTabs(),
@@ -132,19 +122,8 @@ class MainComponent extends MpComponent {
         this.$mx.Tool.$wcEmit(WeConsoleEvents.WcCanvasContextDestory);
         delete WcScope.CanvasContext;
     }
-    onPageLifeShow() {
-        this.syncState();
-        this.$mx.Tool.$updateData({
-            pageVisible: true
-        });
-    }
-    onPageLifeHide() {
-        this.$mx.Tool.$updateData({
-            pageVisible: false
-        });
-    }
     getCurrentPageId() {
-        if (BUILD_TARGET === 'wx') {
+        if (BUILD_TARGET === 'wx' || BUILD_TARGET === 'ascf') {
             return this.getPageId();
         }
         if (BUILD_TARGET === 'my') {
@@ -154,11 +133,6 @@ class MainComponent extends MpComponent {
             return getElementId((this as any).pageinstance);
         }
         return '';
-    }
-    copyAd() {
-        setClipboardData('https://github.com/weimob-tech/WeConsole').then(() => {
-            showToast('已复制Github项目地址');
-        });
     }
     syncState() {
         const data = {};

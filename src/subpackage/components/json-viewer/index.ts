@@ -256,7 +256,7 @@ export class JsonViewer extends MpComponent<MpJSONViewerComponentData, MpJSONVie
         this.$mx.Tool.$forceData(mpData);
     }
     measureText(str: string, fontSize: number): number {
-        if (!this.$mx.Tool.$wcCanvasContext) {
+        if (!this.$mx.Tool.$wcCanvasContext || BUILD_TARGET === 'ascf') {
             return fontSize * str.length;
         }
         this.$mx.Tool.$wcCanvasContext.font = `${fontSize}px ${fontName}`;

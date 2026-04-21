@@ -82,9 +82,6 @@ const getBuildOptions = (mode: 'full' | 'npm'): [RollupOptions, () => void] => {
                             const name = 'main/vender';
                             return name;
                         }
-                        if (id.includes('main') && !id.includes('main/index') && !id.includes('main/init')) {
-                            return 'main/common';
-                        }
                         if (!id.includes('components') && !id.includes('node_modules')) {
                             return id.includes('subpackage') ? 'subpackage/common' : 'main/common';
                         }

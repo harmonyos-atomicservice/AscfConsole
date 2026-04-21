@@ -6,6 +6,7 @@ import { toXhsML } from './translator/xhs';
 import { toAliXml } from './translator/ali';
 import { MpXmlFileSuffix } from './vars';
 import { toSwanXML } from './translator/swan';
+import { toAscfXML } from './translator/ascf';
 
 const cssFileSuffix = {
     wx: 'wxss',
@@ -14,7 +15,8 @@ const cssFileSuffix = {
     qq: 'qss',
     swan: 'css',
     tt: 'ttss',
-    ks: 'css'
+    ks: 'css',
+    ascf: 'css'
 };
 const xjsFileSuffix = {
     wx: 'wxs',
@@ -23,13 +25,14 @@ const xjsFileSuffix = {
     qq: 'qs',
     swan: 'sjs',
     tt: 'sjs',
-    ks: 'sjs' // TODO: 待确认
+    ks: 'sjs', // TODO: 待确认
+    ascf: 'hjs'
 };
 
 export const compilerMpResource = (
     src: string,
     dist: string,
-    targetPlatform: 'wx' | 'my' | 'xhs' | 'qq' | 'swan' | 'tt' | 'ks'
+    targetPlatform: 'wx' | 'my' | 'xhs' | 'qq' | 'swan' | 'tt' | 'ks' | 'ascf'
 ) => {
     return Promise.all([
         copyPromise(`${src}/**/*.png`, dist),
@@ -76,6 +79,10 @@ export const compilerMpResource = (
                 }
                 if (targetPlatform === 'swan') {
                     writeFile(newFileName, toSwanXML(xml));
+                    return;
+                }
+                if (targetPlatform === 'ascf') {
+                    writeFile(newFileName, toAscfXML(xml));
                     return;
                 }
                 return;

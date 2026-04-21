@@ -91,4 +91,4 @@ export const hideWeConsole = () => {
 };
 
 export const version = 'VERSION';
-console.log(`欢迎使用WeConsole v${version}，让小程序调试更高效！`);
+console.log(`欢迎使用ASCFConsole v${version}，让小程序调试更高效！`);

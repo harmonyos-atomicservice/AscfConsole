@@ -71,7 +71,7 @@ class ApiDetailComponent extends MpComponent {
         selfHash: ''
     };
     created() {
-        this.$mx.Tool.$forceData({
+        this.$mx.Tool.$updateData({
             selfHash: uuid()
         });
         this.$mx.Tool.$wcOn('JSONViewerReady', (type, data: MpJSONViewerComponentEbusDetail) => {
@@ -186,7 +186,7 @@ class ApiDetailComponent extends MpComponent {
                         value: 'cookies'
                     });
                 }
-                this.$mx.Tool.$forceData({
+                this.$mx.Tool.$updateData({
                     tabs,
                     loading: false,
                     error: '',
@@ -195,7 +195,7 @@ class ApiDetailComponent extends MpComponent {
                 // this.setStackHooks();
                 return;
             }
-            this.$mx.Tool.$forceData({
+            this.$mx.Tool.$updateData({
                 loading: false,
                 error: '',
                 detail: null
@@ -203,7 +203,7 @@ class ApiDetailComponent extends MpComponent {
             return;
         }
         if (data) {
-            this.$mx.Tool.$forceData({
+            this.$mx.Tool.$updateData({
                 loading: false,
                 error: '',
                 detail: data

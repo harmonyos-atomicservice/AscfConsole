@@ -11,11 +11,12 @@ declare global {
     let xhs: MpApiVar;
     let qq: MpApiVar;
     let ks: MpApiVar;
+    let has: MpApiVar;
     let App: MpViewFactory;
     let Page: MpViewFactory;
     let Component: MpViewFactory;
     /** 编译目标 */
-    let BUILD_TARGET: 'wx' | 'my' | 'swan' | 'qq' | 'tt' | 'ks' | 'xhs';
+    let BUILD_TARGET: 'wx' | 'my' | 'swan' | 'qq' | 'tt' | 'ks' | 'xhs' | 'ascf';
     let __wxConfig: any;
     let __qqConfig: any;
     let __appxStartupParams: any;

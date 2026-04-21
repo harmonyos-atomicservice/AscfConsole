@@ -186,6 +186,9 @@ export class Hooker implements IHooker {
         if (BUILD_TARGET === 'ks') {
             this.native = ks;
         }
+        if (BUILD_TARGET === 'ascf') {
+            this.native = has;
+        }
         const oldWx = this.native;
         const target = {};
         let setFail;
@@ -216,6 +219,10 @@ export class Hooker implements IHooker {
 
             if (BUILD_TARGET === 'ks') {
                 ks = target;
+            }
+
+            if (BUILD_TARGET === 'ascf') {
+                has = target;
             }
         } catch (error) {
             setFail = true;
