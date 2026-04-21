@@ -114,7 +114,7 @@ export class JSONViewer<T = any> implements IJSONViewer<T> {
             }
             words.push(item);
             (readyWidth as number) += item.width as number;
-            if (typeof maxWidth !== 'undefined' && (readyWidth as number) >= maxWidth) {
+            if (typeof maxWidth !== 'undefined' && (readyWidth) >= maxWidth) {
                 stop = true;
             }
         };

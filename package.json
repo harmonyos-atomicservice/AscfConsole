@@ -1,19 +1,15 @@
 {
-    "name": "weconsole",
-    "version": "1.6.0",
+    "name": "@atomicservice/ascf-console",
+    "version": "1.0.0",
     "description": "功能全面、界面与体验对标 Chrome devtools 的可定制化的跨平台小程序开发调试面板",
     "main": "dist/npm/main/index.js",
     "miniprogram": "dist/npm",
     "files": [
         "dist",
         "scripts-dist",
-        "bin",
         "LICENSE",
         "README.md"
     ],
-    "bin": {
-        "weconsole": "bin/weconsole"
-    },
     "scripts": {
         "lint:style": "pnpm stylelint 'src/**/*.scss'",
         "lint:es": "pnpm eslint 'src/**/*.ts' 'build/**/*.js' '*.js'",
@@ -27,10 +23,12 @@
         "build:my": "pnpm build:before && rimraf ./dist/alipay && cross-env BUILD_TARGET=my node ./scripts-dist/cli.js",
         "build:qq": "pnpm build:before && rimraf ./dist/qq && cross-env BUILD_TARGET=qq node ./scripts-dist/cli.js",
         "build:xhs": "pnpm build:before && rimraf ./dist/xhs && cross-env BUILD_TARGET=xhs node ./scripts-dist/cli.js",
+        "build:ascf": "pnpm build:before && rimraf ./dist/ascf && cross-env BUILD_TARGET=ascf node ./scripts-dist/cli.js",
         "build": "pnpm build:wx && pnpm build:my && pnpm build:xhs && pnpm build:swan",
         "dev": "pnpm tsc --outDir ./dist/full -w && node ./build/watch.js",
         "beta": "npm publish --tag=beta",
         "pub": "npm publish --tag=latest",
+        "release": "pnpm build:ascf && pnpm pack",
         "upgrade": "pnpm ncu -u"
     },
     "repository": {

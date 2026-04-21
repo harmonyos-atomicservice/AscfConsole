@@ -1,0 +1,2 @@
+patchedDependencies:
+  cross-mp-power: patches/cross-mp-power.patch
