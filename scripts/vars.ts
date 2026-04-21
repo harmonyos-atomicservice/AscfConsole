@@ -11,5 +11,6 @@ export const MpXmlFileSuffix = {
     qq: 'qml',
     swan: 'swan',
     tt: 'ttml',
-    ks: 'kxml'
+    ks: 'kxml',
+    ascf: 'hxml'
 };

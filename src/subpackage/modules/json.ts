@@ -381,7 +381,7 @@ export const getObjectKeysJSONChunks = (
         }
     };
     const propDescList = getOwnPropertyDescriptors(obj, (name, desc, index) => {
-        let pass = 'value' in desc && index < (maxPropLength as number);
+        let pass = 'value' in desc && index < (maxPropLength);
         if (typeof filter === 'function') {
             pass = pass && filter(name, desc, index);
         }

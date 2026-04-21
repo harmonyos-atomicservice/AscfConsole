@@ -149,6 +149,9 @@ export const getElementId = (vm: any): string => {
         setPageMockId(vm);
         return vm.nodeId || vm.__wcMockId__;
     }
+    if (BUILD_TARGET === 'ascf') {
+        return vm.nodeId || vm._componentId;
+    }
     // TODO: 其他渠道
     return '';
 };
