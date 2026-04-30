@@ -91,7 +91,8 @@ class MainComponent extends MpComponent {
         activeSysTab: MainStateController.getState('activeSysTab') || 0,
         sysTabMountState: MainStateController.getState('sysTabMountState', {
             [`s${MainStateController.getState('activeSysTab') || 0}`]: 1
-        })
+        }),
+        ascfFullTop: '40px'
     };
     attached() {
         const selfId = getElementId(this);
@@ -200,11 +201,10 @@ class MainComponent extends MpComponent {
         MainStateController.setState('mounted', this.data.mounted);
     }
     toggleZoom() {
-        this.$mx.Tool.$forceData({
+        this.$mx.Tool.$updateData({
             fullScreen: !this.data.fullScreen
         });
         MainStateController.setState('fullScreen', this.data.fullScreen);
-        this.$mx.Tool.$wcEmit(WeConsoleEvents.WcMainComponentSizeChange);
     }
     close() {
         this.$mx.Tool.$forceData({
@@ -322,7 +322,8 @@ class MainComponent extends MpComponent {
     init() {
         const res = getSystemInfo();
         this.$mx.Tool.$updateData({
-            isFullScreenPhone: res.statusBarHeight && res.statusBarHeight > 20
+            isFullScreenPhone: res.statusBarHeight && res.statusBarHeight > 20,
+            ascfFullTop: res.statusBarHeight ? res.statusBarHeight + 'px' : '40px'
         });
         // 默认情况下，如果是打开调试时，才显示icon
         if (!('visible' in WcScope)) {
