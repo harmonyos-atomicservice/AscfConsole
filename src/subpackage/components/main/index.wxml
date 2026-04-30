@@ -12,7 +12,7 @@
 
     <view wx:if="{{showIcon && inited && pageVisible && (visible || mounted)}}"
         class="fc-modal {{isFullScreenPhone?'fc-adap-scroll':''}} {{visible?'is-show':''}} {{fullScreen?'is-full':''}}"
-        style="{{fullScreen&&(isFullScreenPhone?adapFullTop:fullTop)?('top:'+(isFullScreenPhone?adapFullTop:fullTop)+';'):''}}z-index:{{zIndex}};">
+        style="{{fullScreen ?('top:'+ascfFullTop+';'):''}}z-index:{{zIndex}};">
         <view class="fc-modal-body">
             <tabs class="wc-main-tabs" tabs="{{tabs}}" active="{{activeTabIndex}}" bind:change="setTab" style="height:100%">
                 <view slot="headBefore" class="fc-tabs-action" bindtap="toggleZoom">

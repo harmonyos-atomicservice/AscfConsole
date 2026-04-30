@@ -7,8 +7,6 @@ import { MpComponent } from 'typescript-mp-component';
 class TableCellComponent<T = any> extends MpComponent {
     properties: MpComponentProperties<TableCellComponentProps, TableCellComponent<T>> = {
         value: {
-            type: Object,
-            optionalTypes: [Object, String]
         },
         col: Object,
         from: String
